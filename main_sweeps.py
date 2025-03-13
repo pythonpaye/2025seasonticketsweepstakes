@@ -19,17 +19,17 @@ def webhook():
     if community_checkbox_value == ['1']:
         # Extract the data fields from the incoming data
         # Phone Number
-        phone_info = data.get('Phone', {})
+        phone_info = data.get('Phone Number', {})
         phone_number = phone_info.get('value')
 
         # Name
-        given_name_info = data.get('Primary Member First Name', {})
+        given_name_info = data.get('First Name', {})
         given_name = given_name_info.get('value')
-        surname_info = data.get('Primary Member Last Name', {})
+        surname_info = data.get('Last Name', {})
         surname = surname_info.get('value')
 
         # Birthday
-        birthday_info = data.get('Birthday', {})
+        birthday_info = data.get('Date of Birth', {})
         birthday = birthday_info.get('value')
         date_obj = datetime.strptime(birthday, "%b %d, %Y")
         birthday_formatted = date_obj.strftime("%Y-%m-%d")
